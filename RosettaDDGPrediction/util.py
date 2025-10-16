@@ -35,6 +35,7 @@ import logging as log
 import operator
 import os
 import os.path
+from pathlib import Path
 import re
 import subprocess
 # Third-party packages
@@ -577,7 +578,7 @@ def get_out_pdb_name(options,
     """
 
     # Get the PDB file name
-    pdb_name = pdb_file.rstrip(".pdb")
+    pdb_name = Path(pdb_file).stem
     
     # Get the option defining the PDB prefix, if any
     prefix_opt = get_option_key(options, "out_prefix")
