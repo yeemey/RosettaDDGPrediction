@@ -50,26 +50,26 @@ def pdb_to_residues(pdb_path, chain, outfile, df=False):
 
 def mutate(residue_code):
     # amino acids resulting from transitions
-    mutate_to = {'G': ['D', 'E', 'S', 'R'],
-                 'A': ['T', 'V'],
-                 'V': ['A', 'I', 'M'],
-                 'L': ['S', 'P', 'F'],
-                 'I': ['M', 'T', 'V'],
-                 'T': ['A', 'I', 'M'],
-                 'S': ['N', 'G', 'F', 'L', 'P'],
-                 'M': ['I', 'T', 'V'],
-                 'C': ['Y', 'R'],
-                 'P': ['L', 'S'],
-                 'F': ['L', 'S'],
-                 'Y': ['C', 'H'],
-                 'W': ['R'],
-                 'H': ['R', 'Y'],
-                 'K': ['R', 'E'],
-                 'R': ['H', 'N', 'C', 'W', 'K', 'G'],
-                 'D': ['G', 'N'],
-                 'E': ['G', 'K'],
-                 'N': ['S', 'D'], 
-                 'Q': ['R']}
+    mutate_to = {'G': ['D', 'E', 'S', 'R'], # D: 2g-a, E: 2g-a, S: 1g-a, R: 1g-a
+                 'A': ['T', 'V'], # T: 1g-a, V: 2c-t
+                 'V': ['A', 'I', 'M'], # A: 2t-c, I: 1g-a, M: 1g-a
+                 'L': ['S', 'P', 'F'], # S: 2t-c, P: 2t-c, F: 1c-t
+                 'I': ['M', 'T', 'V'], # M: 3a-g, T: 2t-c, V: 1a-g
+                 'T': ['A', 'I', 'M'], # A: 1a-g, I: 2c-t, M: 2c-t
+                 'S': ['N', 'G', 'F', 'L', 'P'], # N: 2g-a, G: 1a-g, F: 2c-t, L: 2c-t, P: 1t-c
+                 'M': ['I', 'T', 'V'], # I: 3g-a, T: 2t-c, V: 1a-g
+                 'C': ['Y', 'R'], # Y: 2g-a, R: 1t-c
+                 'P': ['L', 'S'], # L: 2c-t, S: 1c-t
+                 'F': ['L', 'S'], # L: 1t-c, S: 2t-c 
+                 'Y': ['C', 'H'], # C: 2a-g, H: 1t-c
+                 'W': ['R'], # R: 1t-c
+                 'H': ['R', 'Y'], # R: 2a-g, Y: 1c-t
+                 'K': ['R', 'E'], # R: 2a-g, E: 1a-g
+                 'R': ['H', 'C', 'W', 'K', 'G'], # H: 2g-a, C: 1c-t, W: 1c-t, K: 2g-a, G: 1a-g
+                 'D': ['G', 'N'], # G: 2a-g, N: 1g-a
+                 'E': ['G', 'K'], # G: 2a-g, K: 1g-a
+                 'N': ['S', 'D'], # S: 2a-g, D: 1a-g
+                 'Q': ['R']} # R: 2a-g
     return mutate_to[residue_code]
 
 def non_saturation_mutagenesis(residue_list, txtout):
